@@ -25,12 +25,12 @@ let logger _ result =
 
 (* run one OUnit test case, return successes, no. of tests *)
 (* notionally one test, which might be a TestList *)
-let run_one _ test =
+let run_one logit test =
   let rec process_results rs =
     match rs with
       [] -> (0,0)
     | (r::rest) ->
-       let succ = 1 in
+       let succ = if logit r then 1 else 0 in
        let succ_results,tot_results = process_results rest in
        (succ + succ_results,tot_results + 1)
   in
