@@ -1,0 +1,4 @@
+(tests
+ (names i_am_failing i_am_succeeding)
+ (libraries utest lib)
+)
